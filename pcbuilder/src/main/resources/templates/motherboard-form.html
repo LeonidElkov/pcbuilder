@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${motherboard.name} == null ? 'Добавить материнскую плату' : 'Редактировать материнскую плату'"></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${motherboard.name} == null ? 'Добавить материнскую плату' : 'Редактировать материнскую плату'"></h1>
+    <form th:action="@{${motherboard.name} == null ? '/motherboards' : '/motherboards/edit/' + ${motherboard.name}}" method="post">
+        <div class="form-group">
+            <label for="name">Название:</label>
+            <input type="text" id="name" name="name" th:value="${motherboard.name}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="socketType">Тип сокета:</label>
+            <input type="text" id="socketType" name="socketType" th:value="${motherboard.socketType}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="formFactor">Форм-фактор:</label>
+            <input type="text" id="formFactor" name="formFactor" th:value="${motherboard.formFactor}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="ramSlots">Количество слотов для ОЗУ:</label>
+            <input type="number" id="ramSlots" name="ramSlots" th:value="${motherboard.ramSlots}" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+        <a href="/motherboards" class="btn btn-secondary">Отмена</a>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${gpu.name} == null ? 'Добавить видеокарту' : 'Редактировать видеокарту'"></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${gpu.name} == null ? 'Добавить видеокарту' : 'Редактировать видеокарту'"></h1>
+    <form th:action="@{${gpu.name} == null ? '/gpus' : '/gpus/' + ${gpu.name}}" method="post">
+        <div class="form-group">
+            <label for="name">Название:</label>
+            <input type="text" id="name" name="name" th:value="${gpu.name}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="memorySize">Объем памяти (ГБ):</label>
+            <input type="number" id="memorySize" name="memorySize" th:value="${gpu.memorySize}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="memoryType">Тип памяти:</label>
+            <input type="text" id="memoryType" name="memoryType" th:value="${gpu.memoryType}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="powerConsumption">Потребление энергии (Вт):</label>
+            <input type="number" id="powerConsumption" name="powerConsumption" th:value="${gpu.powerConsumption}" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+        <a href="/gpus" class="btn btn-secondary">Отмена</a>
+    </form>
+</div>
+</body>
+</html>

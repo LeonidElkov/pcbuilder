@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Список видеокарт</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Список видеокарт</h1>
+    <a class="btn btn-primary" href="/gpus/add">Добавить новую видеокарту</a>
+    <a class="btn btn-secondary" href="/">Вернуться на главную</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Название</th>
+            <th>Объем памяти (ГБ)</th>
+            <th>Тип памяти</th>
+            <th>Потребление энергии (Вт)</th>
+            <th>Действия</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="gpu : ${gpus}">
+            <td th:text="${gpu.name}"></td>
+            <td th:text="${gpu.memorySize}"></td>
+            <td th:text="${gpu.memoryType}"></td>
+            <td th:text="${gpu.powerConsumption}"></td>
+            <td>
+                <a th:href="@{/gpus/edit/{name}(name=${gpu.name})}" class="btn btn-warning">Редактировать</a>
+                <a th:href="@{/gpus/delete/{name}(name=${gpu.name})}" class="btn btn-danger" onclick="return confirm('Вы уверены, что хотите удалить эту видеокарту?');">Удалить</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Список материнских плат</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Список материнских плат</h1>
+    <a class="btn btn-primary" href="/motherboards/add">Добавить новую материнскую плату</a>
+    <a class="btn btn-secondary" href="/">Вернуться на главную</a> <!-- Кнопка возвращения -->
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Название</th>
+            <th>Тип сокета</th>
+            <th>Форм-фактор</th>
+            <th>Количество слотов для ОЗУ</th>
+            <th>Действия</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="motherboard : ${motherboards}">
+            <td th:text="${motherboard.name}"></td>
+            <td th:text="${motherboard.socketType}"></td>
+            <td th:text="${motherboard.formFactor}"></td>
+            <td th:text="${motherboard.ramSlots}"></td>
+            <td>
+                <a th:href="@{/motherboards/edit/{name}(name=${motherboard.name})}" class="btn btn-warning">Редактировать</a>
+                <a th:href="@{/motherboards/delete/{name}(name=${motherboard.name})}" class="btn btn-danger" onclick="return confirm('Вы уверены, что хотите удалить эту материнскую плату?');">Удалить</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

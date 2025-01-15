@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Домашняя страница</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Подключение Font Awesome -->
+    <style>
+        body {
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            background-image: url('https://www.transparenttextures.com/patterns/white-paper.png');
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #343a40;
+            color: white;
+            border-radius: 5px;
+        }
+        .card {
+            margin: 10px;
+            transition: transform 0.2s; /* Анимация при наведении */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для карточек */
+        }
+        .card:hover {
+            transform: scale(1.05); /* Увеличение карточки при наведении */
+        }
+        .card-icon {
+            font-size: 40px; /* Размер иконок */
+            color: #007bff; /* Цвет иконок */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Добро пожаловать в систему управления компьютерами!</h1>
+        <p>Выберите один из разделов ниже:</p>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-desktop card-icon"></i> <!-- Иконка для компьютеров -->
+                    <h5 class="card-title">Компьютеры</h5>
+                    <p class="card-text">Посмотрите список всех компьютеров в системе.</p>
+                    <a href="/computers" class="btn btn-primary">Перейти</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-microchip card-icon"></i> <!-- Иконка для процессоров -->
+                    <h5 class="card-title">Процессоры</h5>
+                    <p class="card-text">Изучите доступные процессоры.</p>
+                    <a href="/processors" class="btn btn-primary">Перейти</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-th card-icon"></i> <!-- Иконка для материнских плат -->
+                    <h5 class="card-title">Материнские платы</h5>
+                    <p class="card-text">Посмотрите список материнских плат.</p>
+                    <a href="/motherboards" class="btn btn-primary">Перейти</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-memory card-icon"></i> <!-- Иконка для оперативной памяти -->
+                    <h5 class="card-title">Оперативная память</h5>
+                    <p class="card-text">Посмотрите доступные модули оперативной памяти.</p>
+                    <a href="/ram" class="btn btn-primary">Перейти</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-video card-icon"></i> <!-- Иконка для видеокарт -->
+                    <h5 class="card-title">Видеокарты</h5>
+                    <p class="card-text">Изучите доступные видеокарты.</p>
+                    <a href="/gpus" class="btn btn-primary">Перейти</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-hdd card-icon"></i> <!-- Иконка для накопителей -->
+                    <h5 class="card-title">Накопители</h5>
+                    <p class="card-text">Посмотрите доступные накопители.</p>
+                    <a href="/storagedevices" class="btn btn-primary">Перейти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

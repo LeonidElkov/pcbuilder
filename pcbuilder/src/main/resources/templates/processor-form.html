@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${processor.name} == null ? 'Добавить процессор' : 'Редактировать процессор'"></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${processor.name} == null ? 'Добавить процессор' : 'Редактировать процессор'"></h1>
+    <form th:action="@{${processor.name} == null ? '/processors' : '/processors/' + ${processor.name}}" method="post">
+        <div class="form-group">
+            <label for="name">Название:</label>
+            <input type="text" id="name" name="name" th:value="${processor.name}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="cores">Ядра:</label>
+            <input type="number" id="cores" name="cores" th:value="${processor.cores}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="threads">Потоки:</label>
+            <input type="number" id="threads" name="threads" th:value="${processor.threads}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="baseClock">Базовая частота (ГГц):</label>
+            <input type="number" step="0.01" id="baseClock" name="baseClock" th:value="${processor.baseClock}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="boostClock">Ускоренная частота (ГГц):</label>
+            <input type="number" step="0.01" id="boostClock" name="boostClock" th:value="${processor.boostClock}" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="socketType">Тип сокета:</label>
+            <input type="text" id="socketType" name="socketType" th:value="${processor.socketType}" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+        <a href="/processors" class="btn btn-secondary">Отмена</a>
+    </form>
+</div>
+</body>
+</html>
